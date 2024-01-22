@@ -27,5 +27,7 @@ func (app *Config) routes() http.Handler {
 	// Add heartbeat middleware
 	router.Use(middleware.Heartbeat("/ping"))
 
+	router.Post("/send", app.SendMail)
+
 	return router
 }
